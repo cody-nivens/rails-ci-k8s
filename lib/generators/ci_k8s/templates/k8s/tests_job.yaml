@@ -44,7 +44,7 @@ spec:
         - name: REDIS_HOST
           value: <%= redis_test_host %>
         - name: REDIS_PORT
-          value: "6379"
+          value: "<%= redis_test_port %>"
       restartPolicy: Never
   backoffLimit: 1
 

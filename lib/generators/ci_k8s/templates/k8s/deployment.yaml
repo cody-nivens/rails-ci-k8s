@@ -56,7 +56,7 @@ spec:
           - name: REDIS_HOST
             value: <%= redis_host %>
           - name: REDIS_PORT
-            value: "6379"
+            value: "<%= redis_port %>"
           - name: REDIS_PASS
             valueFrom:
               secretKeyRef:
