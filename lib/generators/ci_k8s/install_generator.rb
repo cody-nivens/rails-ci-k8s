@@ -7,12 +7,16 @@ module CiK8s
 
       class_option :app_namespace, type: :string, default: 'default', desc: "Kubernetes Application namespace."
       class_option :test_namespace, type: :string, default: 'app-test', desc: "Kubernetes Testing namespace."
+
       class_option :db_host, type: :string, default: 'mariadb-mariadb.db-apps.svc.cluster.local', desc: "Prod database host."
       class_option :db_port, type: :string, default: '3306', desc: "Prod database port."
+
       class_option :redis_host, type: :string, default: 'redis-master.default.svc.cluster.local', desc: "Redis host."
       class_option :redis_port, type: :string, default: '6379', desc: "Redis port."
+
       class_option :redis_test_host, type: :string, default: 'redis-test-master.app-test.svc.cluster.local', desc: "Redis test host."
       class_option :redis_test_port, type: :string, default: '6379', desc: "Redis test port."
+
       class_option :registry_host, type: :string, default: '127.0.0.1', desc: "Registry host."
       class_option :registry_port, type: :string, default: '30400', desc: "Registry port."
 
