@@ -4,9 +4,6 @@ module CiK8s
   module Generators
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path("../templates", __FILE__)#This line added
-      def app_name
-          Rails.application.class.to_s.split("::").first.underscore
-      end
 
       # copy configuration
       def copy_initializer
@@ -21,6 +18,11 @@ module CiK8s
         template 'database.yml.test', "database.yml.test"
       end
 
+      private
+
+      def app_name
+          Rails.application.class.to_s.split("::").first.underscore
+      end
     end
   end
 end
