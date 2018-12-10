@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: #{app_name}-service
+  labels:
+    app: #{app_name}
+spec:
+  selector:
+    app: #{app_name}
+  type: NodePort
+  #type: LoadBalancer
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 3000
