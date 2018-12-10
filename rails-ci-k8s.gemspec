@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Cody Nivens"]
   spec.email         = ["cody.nivens@gmail.com"]
 
-  spec.summary       = %q{Create Jinkensfile, Dockerfiles and Kubernetes control files.}
+  spec.summary       = %q{Creates Jinkensfile, Dockerfiles and Kubernetes control files.}
   spec.description   = %q{This gem generates a Jenkinsfile which uses two Dockerfiles to create two images of a Rails application in Kubernetes.}
   spec.homepage      = "https://github.com/cody-nivens/rails-ci-k8s.git"
   spec.license       = "MIT"
