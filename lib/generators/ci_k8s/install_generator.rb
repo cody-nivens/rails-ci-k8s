@@ -12,6 +12,8 @@ module CiK8s
       class_option :redis_test_port, type: :string, default: '6379', desc: "Redis test port."
       class_option :redis_host, type: :string, default: 'redis-master.app-test.svc.cluster.local', desc: "Redis host."
       class_option :redis_port, type: :string, default: '6379', desc: "Redis port."
+      class_option :registry_host, type: :string, default: '127.0.0.1', desc: "Registry host."
+      class_option :registry_port, type: :string, default: '30400', desc: "Registry port."
 
       # copy configuration
       def copy_initializer

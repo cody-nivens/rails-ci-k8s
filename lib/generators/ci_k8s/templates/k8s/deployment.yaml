@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: <%= app_name %>
-        image: 127.0.0.1:30400/<%= app_name %>:latest
+        image: <%= registry_host %>:<%= registry_port %>/<%= app_name %>:latest
         imagePullPolicy: Always
         args: ["rails s -p 3000 -b 0.0.0.0"]
         ports:

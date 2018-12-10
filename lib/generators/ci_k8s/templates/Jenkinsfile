@@ -10,7 +10,7 @@ node {
     appName = "<%= app_name %>"
     appNS = "<%= app_namespace %>"
     testNS = "<%= test_namespace %>"
-    registryHost = "127.0.0.1:30400"
+    registryHost = "<%= registry_host %>:<%= registry_port %>"
     imageName = "${registryHost}/${appName}:${tag}"
     imageNameTest = "${registryHost}/${appName}_test:latest"
     env.BUILDIMG=imageName
