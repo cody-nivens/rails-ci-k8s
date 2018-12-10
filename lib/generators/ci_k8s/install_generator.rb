@@ -1,7 +1,7 @@
-#require 'rails/generators'
+require 'rails/generators'
 
 module CiK8s
-#  module Generators
+  module Generators
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path("../templates", __FILE__)#This line added
 
@@ -24,5 +24,5 @@ module CiK8s
           Rails.application.class.to_s.split("::").first.underscore
       end
     end
-#  end
+  end
 end
