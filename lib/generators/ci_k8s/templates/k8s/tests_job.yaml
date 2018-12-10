@@ -42,7 +42,7 @@ spec:
               name: redis-test
               key: redis-password
         - name: REDIS_HOST
-          value: redis-test-master.app-test.svc.cluster.local
+          value: <%= redis_test_host %>
         - name: REDIS_PORT
           value: "6379"
       restartPolicy: Never

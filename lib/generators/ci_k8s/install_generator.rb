@@ -4,6 +4,10 @@ module CiK8s
   module Generators
     class InstallGenerator < Rails::Generators::Base
       source_root File.expand_path("../templates", __FILE__)#This line added
+      class_option :app_namespace, type: :string, default: 'default', desc: "Application namespace."
+      class_option :test_namespace, type: :string, default: 'app-test', desc: "Testing namespace."
+      class_option :redis_test_host, type: :string, default: 'redis-test-master.app-test.svc.cluster.local', desc: "Redis test host."
+      class_option :redis_host, type: :string, default: 'redis-master.app-test.svc.cluster.local', desc: "Redis host."
 
       # copy configuration
       def copy_initializer

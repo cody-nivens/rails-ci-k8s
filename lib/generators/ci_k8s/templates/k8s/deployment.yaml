@@ -52,9 +52,9 @@ spec:
           - name: RAILS_SERVE_STATIC_ASSETS
             value: "true"
           - name: REDIS_URL
-            value: "redis://redis-master.default.svc.cluster.local"
+            value: "redis://<%= redis_host %>"
           - name: REDIS_HOST
-            value: redis-master.default.svc.cluster.local
+            value: <%= redis_host %>
           - name: REDIS_PORT
             value: "6379"
           - name: REDIS_PASS
