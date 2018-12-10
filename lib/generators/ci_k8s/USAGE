@@ -1,0 +1,16 @@
+Description:
+    This will install a Jenkinsfile to build two Dockerfile pods and push then to Kubernetes.
+
+Example:
+    rails generate ci_k8s:install
+
+    This will create:
+        # Jekinsfile
+        # Dockerfile
+        # Dockerfile.test
+        # database.yml.prod
+        # database.yml.test
+        # k8s/<app_name>_deployment.yaml
+        # k8s/<app_name>_service.yaml
+        # k8s/<app_name>_tests_job.yaml
+        # k8s/<app_name>_setup_job.yaml

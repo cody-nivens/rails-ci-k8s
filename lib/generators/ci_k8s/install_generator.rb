@@ -16,7 +16,7 @@ module CiK8s
       class_option :registry_host, type: :string, default: '127.0.0.1', desc: "Registry host."
       class_option :registry_port, type: :string, default: '30400', desc: "Registry port."
 
-      # copy configuration
+      # adds Jenkins, Docker and Kubernetes config files to the application
       def copy_initializer
         template 'k8s/tests_job.yaml', "k8s/#{app_name}_tests_job.yaml"
         template 'k8s/deployment.yaml', "k8s/#{app_name}_deployment.yaml"
@@ -31,6 +31,36 @@ module CiK8s
 
       private
 
+      def app_namespace
+        options[:app_namespace]
+      end
+      def test_namespace
+        options[:test_namespace]
+      end
+      def db_host
+        options[:db_host]
+      end
+      def db_port
+        options[:db_port]
+      end
+      def redis_test_host
+        options[:redis_test_host]
+      end
+      def redis_test_port
+        options[:redis_test_port]
+      end
+      def redis_host
+        options[:redis_host]
+      end
+      def redis_port
+        options[:redis_port]
+      end
+      def registry_host
+        options[:registry_host]
+      end
+      def registry_port
+        options[:registry_port]
+      end
       def app_name
           Rails.application.class.to_s.split("::").first.underscore
       end
