@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: #{app_name}-service
+  name: <%= app_name %>-service
   labels:
-    app: #{app_name}
+    app: <%= app_name %>
 spec:
   selector:
-    app: #{app_name}
+    app: <%= app_name %>
   type: NodePort
   #type: LoadBalancer
   ports:

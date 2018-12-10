@@ -1,9 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: #{app_name}
+  name: <%= app_name %>
   labels:
-    app: #{app_name}
+    app: <%= app_name %>
 spec:
   replicas: 2
   strategy:
@@ -15,11 +15,11 @@ spec:
   template:
     metadata:
       labels:
-        app: #{app_name}
+        app: <%= app_name %>
     spec:
       containers:
-      - name: #{app_name}
-        image: 127.0.0.1:30400/#{app_name}:latest
+      - name: <%= app_name %>
+        image: 127.0.0.1:30400/<%= app_name %>:latest
         imagePullPolicy: Always
         args: ["rails s -p 3000 -b 0.0.0.0"]
         ports:
@@ -28,22 +28,22 @@ spec:
           - name: SECRET_KEY_BASE
             valueFrom:
               secretKeyRef:
-                name: #{app_name}-secrets
+                name: <%= app_name %>-secrets
                 key: secret-key-base
           - name: DATABASE_USER
             valueFrom:
               secretKeyRef:
-                name: #{app_name}-db-user
+                name: <%= app_name %>-db-user
                 key: username
           - name: DATABASE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: #{app_name}-db-user-pass
+                name: <%= app_name %>-db-user-pass
                 key: password
           - name: DATABASE_NAME
             valueFrom:
               secretKeyRef:
-                name: #{app_name}-db-name
+                name: <%= app_name %>-db-name
                 key: name
           - name: RAILS_ENV
             value: production
