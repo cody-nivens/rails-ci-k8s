@@ -8,7 +8,7 @@ module CiK8s
       class_option :app_namespace, type: :string, default: 'default', desc: "Kubernetes Application namespace."
       class_option :test_namespace, type: :string, default: 'app-test', desc: "Kubernetes Testing namespace."
 
-      class_option :base_container, type: :string, default: 'plain', desc: "Type of base container(plain|wkpdf)."
+      class_option :docker_base, type: :string, default: 'plain', desc: "Dockerfile base(plain|wkpdf)."
 
       class_option :db_host, type: :string, default: 'mariadb-mariadb.db-apps.svc.cluster.local', desc: "Prod database host."
       class_option :db_port, type: :string, default: '3306', desc: "Prod database port."
@@ -29,16 +29,16 @@ module CiK8s
         template 'k8s/service.yaml', "k8s/#{app_name}_service.yaml"
         template 'k8s/setup_job.yaml', "k8s/#{app_name}_setup_job.yaml"
         template 'Jenkinsfile', "Jenkinsfile"
-        template "Dockerfile.#{base_container}", "Dockerfile"
-        template "Dockerfile.test.#{base_container}", "Dockerfile.test"
+        template "Dockerfile.#{docker_base}", "Dockerfile"
+        template "Dockerfile.test.#{docker_base}", "Dockerfile.test"
         template 'database.yml.prod', "database.yml.prod"
         template 'database.yml.test', "database.yml.test"
       end
 
       private
 
-      def base_container
-        options[:base_container]
+      def docker_base
+        options[:docker_base]
       end
       def app_namespace
         options[:app_namespace]
